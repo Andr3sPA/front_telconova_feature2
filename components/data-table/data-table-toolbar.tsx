@@ -17,16 +17,20 @@ interface DataTableToolbarProps<TData> {
   facetedFilterColumns?: {
     accessorKey: string;
     title: string;
-    options: Option[]; // Use the imported Option type
+    options: Option[];
   }[];
+  searchColumnKey?: string;
+  searchPlaceholder?: string;
 }
 
 export function DataTableToolbar<TData>({
   table,
   facetedFilterColumns = [],
+  searchColumnKey,
+  searchPlaceholder = "Búsqueda...",
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
-  const tecnicoColumn = table.getColumn("tecnico"); // Get the tecnico column
+  const searchColumn = searchColumnKey ? table.getColumn(searchColumnKey) : undefined;
 
   const getFacetedFilterableColumns = () => {
     return table.getAllColumns().filter(
@@ -40,27 +44,27 @@ export function DataTableToolbar<TData>({
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
-        {/* Add Input for tecnico search */}
-        {tecnicoColumn && (
+        {searchColumn && (
           <Input
-            placeholder="Búsqueda por técnico..."
-            value={(tecnicoColumn.getFilterValue() as string) ?? ""}
+            placeholder={searchPlaceholder}
+            value={(searchColumn.getFilterValue() as string) ?? ""}
             onChange={(event) =>
-              tecnicoColumn.setFilterValue(event.target.value)
+              searchColumn.setFilterValue(event.target.value)
             }
             className="h-8 w-[150px] lg:w-[250px]"
           />
         )}
         {getFacetedFilterableColumns().map((column) => {
           // Cast column to Column<TData, unknown> to satisfy DataTableFacetedFilter's expected type
-          const col = column as Column<TData, unknown>;
+          // This casting was correct, the issue might be in how it was applied or interpreted by the linter in the previous step.
+          const col = column as Column<TData, unknown>; 
           const config = facetedFilterColumns.find((fc) => fc.accessorKey === col.id);
           if (!config) return null;
 
           return (
             <DataTableFacetedFilter
               key={col.id}
-              column={col} // Use the casted column
+              column={col}
               title={config.title}
               options={config.options}
             />

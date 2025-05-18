@@ -175,7 +175,12 @@ export default function TecnicosTablePage() {
     <div className="container py-10 w-3/4 mx-auto">
       <h1 className="text-2xl font-bold mb-6 text-center">Lista de Órdenes de Técnicos</h1>
       <div className="space-y-4">
-        <DataTableToolbar table={table} facetedFilterColumns={facetedFilterColumnsConfig} />
+        <DataTableToolbar 
+          table={table} 
+          facetedFilterColumns={facetedFilterColumnsConfig}
+          searchColumnKey="tecnico" // Explicitly specify tecnico column
+          searchPlaceholder="Búsqueda por técnico..." // Specify placeholder
+        />
         <DataTable table={table} />
         <DataTablePagination table={table} />
       </div>
