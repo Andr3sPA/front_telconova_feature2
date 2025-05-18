@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Globe } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +24,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-full`}
       >
-        {children}
+        <div className="flex justify-center gap-2 px-4 md:px-6 pt-0 w-fit">
+          <a href="#" className="flex items-center gap-2 font-medium">
+            <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
+              <Globe className="size-4" />
+            </div>
+            <div className="justify-start text-black text-2xl font-semibold font-['Inter'] leading-loose">TelcoNova</div>
+          </a>
+        </div>
+        <main className="flex-grow">{children}</main>
+        <div className="w-fit p-4 md:p-6 text-left w-fit">
+          Términos | Privacidad
+        </div>
       </body>
     </html>
   );
