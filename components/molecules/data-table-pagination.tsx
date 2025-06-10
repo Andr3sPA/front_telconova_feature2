@@ -1,14 +1,14 @@
 import { Table } from "@tanstack/react-table";
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from "lucide-react"; // Or your preferred icon library
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/atoms/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/molecules/select";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;

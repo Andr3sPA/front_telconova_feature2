@@ -1,4 +1,4 @@
-import { LoginForm } from "@/components/login-form"
+import { LoginForm } from "@/components/organisms/login-form"
 export default function LoginPage() {
   return (
     <div className="grid h-[80vh] lg:grid-cols-2">

@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/atoms/table";
 
 interface DataTableProps<TData> {
   table: TanstackTable<TData>;

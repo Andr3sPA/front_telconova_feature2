@@ -1,8 +1,8 @@
 "use client"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button } from "@/components/atoms/button"
+import { Input } from "@/components/atoms/input"
+import { Label } from "@/components/atoms/label"
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -48,9 +48,9 @@ export function LoginForm({
         }
       )
 
-      if (response.data) {
-        console.log("Login successful:", response.data)
-        router.push("/")
+      if (response.status === 200 || response.status === 204) {
+        console.log("Login successful")
+        router.push("/supervisor/tecnicos_table")
       } else {
         setError("Login failed. Please check your credentials.")
       }

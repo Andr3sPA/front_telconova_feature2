@@ -4,12 +4,12 @@ import { Table, Column } from "@tanstack/react-table"; // Added Column import
 import { XIcon } from "lucide-react"; // Or your preferred icon library
 import * as React from "react";
 
-import { DataTableDateFilter } from "@/components/data-table/data-table-date-filter";
-import { DataTableFacetedFilter, Option } from "@/components/data-table/data-table-faceted-filter"; // Assuming this will be adapted, imported Option
-import { DataTableSliderFilter } from "@/components/data-table/data-table-slider-filter";
-import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { DataTableDateFilter } from "@/components/molecules/data-table-date-filter";
+import { DataTableFacetedFilter, Option } from "@/components/molecules/data-table-faceted-filter"; // Assuming this will be adapted, imported Option
+import { DataTableSliderFilter } from "@/components/molecules/data-table-slider-filter";
+import { DataTableViewOptions } from "@/components/molecules/data-table-view-options";
+import { Button } from "@/components/atoms/button";
+import { Input } from "@/components/atoms/input";
 import { cn } from "@/lib/utils";
 
 interface DataTableToolbarProps<TData> {

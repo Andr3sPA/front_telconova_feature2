@@ -5,8 +5,8 @@ import { CheckIcon, PlusCircleIcon } from "lucide-react"; // Corrected icon name
 import { Column } from "@tanstack/react-table";
 
 import { cn } from "@/lib/utils"; // Assuming you have a cn utility
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/atoms/badge";
+import { Button } from "@/components/atoms/button";
 import {
   Command,
   CommandEmpty,
@@ -15,13 +15,13 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/ui/command";
+} from "@/components/molecules/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/molecules/popover";
+import { Separator } from "@/components/atoms/separator";
 
 // Define the Option type that DataTableFacetedFilter expects
 export interface Option {

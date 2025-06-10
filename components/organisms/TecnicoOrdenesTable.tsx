@@ -1,3 +1,4 @@
+// filepath: c:\Users\andre\Desktop\uni\Ing Web\front_telconova_feature2\components\organisms\TecnicoOrdenesTable.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -126,7 +127,7 @@ const baseColumns: ColumnDef<OrdenTecnicoEntry>[] = [
   },
 ];
 
-export default function OrdenesTablePage() {
+export default function TecnicoOrdenesTable() {
   const [apiData, setApiData] = useState<OrdenTecnicoEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -265,4 +266,3 @@ export default function OrdenesTablePage() {
     </div>
   );
 }
-
