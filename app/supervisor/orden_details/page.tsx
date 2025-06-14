@@ -11,6 +11,7 @@ import { DataTablePagination } from "@/components/molecules/data-table-paginatio
 import { Checkbox } from "@/components/atoms/checkbox";
 import { Button } from "@/components/atoms/button";
 import { Progress } from "@/components/atoms/progress"; // Import Progress
+import { useRouter } from "next/navigation"; // Changed from react-router-dom
 import {
   Card,
   CardContent,
@@ -133,6 +134,7 @@ const columns: ColumnDef<ResumenTecnicoEntry>[] = [
 ];
 
 function OrderDetailsClientContent() {
+  const router = useRouter(); // Moved and changed to useRouter
   const searchParams = useSearchParams();
   const ordenId = searchParams.get('ordenId');
   const [apiData, setApiData] = useState<ResumenTecnicoEntry[]>([]);
@@ -347,10 +349,24 @@ function OrderDetailsClientContent() {
   if (error) {
     return <div>Error al cargar los datos: {error}</div>;
   }
-
   return (
     <>
+      {/* Container for the Back button, now part of the normal document flow */}
+      <div className="px-8 pt-6 pb-2"> 
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={() => router.back()}
+          className="shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Volver
+        </Button>
+      </div>
       <div className="container py-1 w-3/4 mx-auto">
+        {/* Removed pt-12 md:pt-8 from h1 as the button container above now provides spacing */}
         <h1 className="text-2xl font-bold mb-6 text-center">Resumen de Órden</h1>
       </div>
       <div className="grid h-[80vh] lg:grid-cols-2">
