@@ -408,7 +408,7 @@ function OrderDetailsClientContent() {
         <div className="fixed inset-0 z-10 lg:static lg:inset-auto lg:pr-8">
           <Card>
             <CardHeader>
-              <CardTitle>Orden #{orderDetails ? orderDetails.name : (ordenId || "N/A")}</CardTitle>
+              <CardTitle>{orderDetails ? orderDetails.name : (ordenId || "N/A")}</CardTitle>
               <CardDescription>
                 {orderDetails ? `Detalles de la orden. Urgencia: ${orderDetails.urgency}` : "Cargando detalles..."}
               </CardDescription>
